@@ -1,5 +1,13 @@
 @import "./variables";
 
 body {
-  background-color: $primary-background-color;
+  background-color: $secondary-background-color;
+}
+
+header {
+  padding: 20px;
+  margin: auto;
+  display: block;
+  align-items: center;
+  justify-content: center;
 }

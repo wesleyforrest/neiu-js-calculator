@@ -1,18 +1,25 @@
 @import "./variables";
 
-.calculator__body {
-  height: 400px;
-  width: 300px;
-  border: solid 1px black;
+.calculator {
+  &__body {
+    margin: auto;
+    height: 500px;
+    width: 300px;
+    border: solid 1px black;
+    background-color: $primary-background-color;
+  }
 
   &__display {
-    width: 200px;
-    height: 50%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    height: 20%px;
     border: solid 1px black;
+    background-color: yellow;
   }
 }
 
-.calculator__buttons-section {
-  width: 80%;
-  height: 70%;
+p {
+  margin-left: 10px;
 }
