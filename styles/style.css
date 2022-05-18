@@ -1,1 +1,19 @@
-/*# sourceMappingURL=style.css.map */
+body {
+  background-color: #85bda6;
+}
+
+.calculator__body {
+  height: 400px;
+  width: 300px;
+  border: solid 1px black;
+}
+.calculator__body__display {
+  width: 200px;
+  height: 50%;
+  border: solid 1px black;
+}
+
+.calculator__buttons-section {
+  width: 80%;
+  height: 70%;
+}/*# sourceMappingURL=style.css.map */
