@@ -1,8 +1,25 @@
 //Create variable to update number in display
 
+let numbers = document.querySelectorAll(".number");
 const displayNumber = document.querySelector("#display-number");
-displayNumber.innerHTML = "0";
+const clearButton = document.querySelector("#btn-ac");
+let firstNumber = "";
+let secondNumber = "";
+let operatorButton = "";
+let storedNumber = "";
+const clearAll = () => {
+  displayNumber.innerHTML = "";
+};
 
+const showNumbers = (event) => {
+  displayNumber.innerHTML += event.target.innerText;
+};
+clearButton.addEventListener("click", clearAll);
+displayNumber.innerHTML = "20";
+
+numbers.forEach((number) => {
+  number.addEventListener("click", showNumbers);
+});
 // create function to select each button individually
 
 const buttonValues = [
@@ -23,7 +40,5 @@ const buttonValues = [
   "=",
   "ac",
 ];
-
-const buttonSelector = buttonValues.forEach((element) => {});
 
 //Use an array to push number to then "Reduce" for any calculation using add only
