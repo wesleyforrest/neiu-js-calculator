@@ -1,6 +1,7 @@
 //Create variable to update number in display
 
 let numbers = document.querySelectorAll(".number");
+let operators = document.querySelectorAll(".operator");
 const displayNumber = document.querySelector("#display-number");
 const clearButton = document.querySelector("#btn-ac");
 let firstNumber = "";
@@ -14,31 +15,43 @@ const clearAll = () => {
 const showNumbers = (event) => {
   displayNumber.innerHTML += event.target.innerText;
 };
+
+const showOperators = (event) => {
+  displayNumber.innerHTML = event.target.innerText;
+};
+
 clearButton.addEventListener("click", clearAll);
-displayNumber.innerHTML = "20";
+displayNumber.innerHTML = "";
 
 numbers.forEach((number) => {
   number.addEventListener("click", showNumbers);
 });
+
+operators.forEach((operator) => {
+  operator.addEventListener("click", showOperators);
+});
 // create function to select each button individually
 
-const buttonValues = [
-  0,
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  "+",
-  "-",
-  "*",
-  "/",
-  "=",
-  "ac",
-];
-
 //Use an array to push number to then "Reduce" for any calculation using add only
+
+sum.addEventListener("click", () => {
+  let answer;
+  switch (oper) {
+    case "+":
+      answer = parseFloat(firstNumber) + parseFloat(secondNumber);
+      displayOutput(answer);
+      break;
+    case "-":
+      answer = parseFloat(firstNumber) - parseFloat(secondNumber);
+      displayOutput(answer);
+      break;
+    case "/":
+      answer = parseFloat(firstNumber) / parseFloat(secondNumber);
+      displayOutput(answer);
+      break;
+    case "X":
+      answer = parseFloat(firstNumber) * parseFloat(secondNumber);
+      displayOutput(answer);
+      break;
+  }
+});
