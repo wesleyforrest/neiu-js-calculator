@@ -1,9 +1,12 @@
-// Create variables to target numbers and operators by class (use querySelectorAll for numbers and operators, QuerySelector for "AC" button)
+// Create variables to target numbers and operators by class (use querySelectorAll for numbers and operators, QuerySelector for "AC" button & "=")
 let numbers = document.querySelectorAll(".number");
 let operators = document.querySelectorAll(".operator");
 
-//Target "AC" button seperatly as output is not required is to clear display, not output characters to display
+//Create variable to target "AC" button seperatly as output is not required is to clear display, not output characters to display
 const clearButton = document.querySelector("#btn-ac");
+
+//Create variable to target "=" button seperatly as output from button is not required.  Pressing the button should trigger a calculation between 2 selected numbers (or sets of) and output the answer to the calculator display
+const equals = document.querySelector(".equals");
 
 //Create variable to update display output from calculator keyboard
 const displayNumber = document.querySelector("#display-number");
@@ -29,6 +32,12 @@ const clearAll = () => {
 clearButton.addEventListener("click", clearAll);
 displayNumber.innerHTML = "";
 
+//Create function to take 2 numbers and calculate answer
+const sumEquals = () => {
+  equals.innerHTML = event.target.innerText;
+};
+equals.addEventListener("click");
+
 //Create empty variables for first & second input, operator, stored number (generated from first number once operator button clicked) and answer (generated once calculation (=) button is clicked)
 let firstNumber = "";
 let secondNumber = "";
@@ -39,7 +48,7 @@ let answer = "";
 //Use an array to push number to then "Reduce" for any calculation using add only??
 
 //Create a switch statement to handle inputs and carry out calculation required depending on operator used
-sum.addEventListener("click", () => {
+equals.addEventListener("click", () => {
   let answer;
   switch (oper) {
     case "+":
@@ -54,7 +63,7 @@ sum.addEventListener("click", () => {
       answer = parseFloat(firstNumber) / parseFloat(secondNumber);
       displayOutput(answer);
       break;
-    case "X":
+    case "*":
       answer = parseFloat(firstNumber) * parseFloat(secondNumber);
       displayOutput(answer);
       break;
