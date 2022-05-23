@@ -13,6 +13,7 @@ const displayNumber = document.querySelector("#display-number");
 
 //Create function to display numbers in display when clicked (use forEach to map each number to an event listener)
 const showNumbers = (event) => {
+  console.log(displayNumber);
   displayNumber.innerHTML += event.target.innerText;
 };
 numbers.forEach((number) => {
@@ -32,11 +33,31 @@ const clearAll = () => {
 clearButton.addEventListener("click", clearAll);
 displayNumber.innerHTML = "";
 
-//Create function to take 2 numbers and calculate answer
-const sumEquals = () => {
-  equals.innerHTML = event.target.innerText;
-};
-equals.addEventListener("click");
+//Create a code block to take in numbers entered before the operator button is pressed and push to calculator display
+for (let i = 0; i < numbers.length; i++) {
+  numbers[i].addEventListener("click", () => {
+    if (firstNumber) {
+      firstNumber = firstNumber + number[i].innerText;
+    } else {
+      firstNumber = numbers[i].innerText;
+    }
+    showNumbers(firstNumber);
+    console.log(displayNumber);
+  });
+}
+
+//Crete code block to reset display once operator is pressed and create a string of numbers to form the post operator button click
+let operator = document.getElementsByClassName("operator");
+for (let i = 0; i < operator.length; i++) {
+  operator[i].addEventListener("click", () => {
+    oper = operator[i].innerText;
+    showNumber(oper);
+    secondNumber = secondNumber;
+    showNumber(secondNumber);
+    firstNumber = "";
+    console.log(secondNumber, firstNumber);
+  });
+}
 
 //Create empty variables for first & second input, operator, stored number (generated from first number once operator button clicked) and answer (generated once calculation (=) button is clicked)
 let firstNumber = "";
