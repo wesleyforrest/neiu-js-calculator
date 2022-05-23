@@ -29,7 +29,7 @@ const showNumbers = (event) => {
   } else {
     secondNumber = displayNumber.innerHTML;
   }
-  console.log(firstNumber, secondNumber);
+  console.log(firstNumber + secondNumber);
   // IF FIRST NUMBER UPDATE VARIABLE
   // ELSE UPDATE THE SECOND NUMBER
 };
@@ -38,6 +38,7 @@ numbers.forEach((number) => {
 });
 //Create function to display operators in display when clicked (use forEach to map each operator to an event listener)
 const showOperators = (event) => {
+  operatorButton = event.target.innerText;
   displayNumber.innerHTML = event.target.innerText;
 };
 operators.forEach((operator) => {
@@ -55,22 +56,25 @@ displayNumber.innerHTML = "";
 //Create a switch statement to handle inputs and carry out calculation required depending on operator used
 equals.addEventListener("click", () => {
   let answer;
-  switch (oper) {
+  console.log(operatorButton);
+  switch (operatorButton) {
     case "+":
       answer = parseFloat(firstNumber) + parseFloat(secondNumber);
-      displayOutput(answer);
+      displayNumber.innerHTML = answer;
       break;
     case "-":
       answer = parseFloat(firstNumber) - parseFloat(secondNumber);
-      displayOutput(answer);
+      displayNumber.innerHTML = answer;
+      console.log(answer);
       break;
     case "/":
       answer = parseFloat(firstNumber) / parseFloat(secondNumber);
-      displayOutput(answer);
+      displayNumber.innerHTML = answer;
       break;
     case "*":
       answer = parseFloat(firstNumber) * parseFloat(secondNumber);
-      displayOutput(answer);
+      displayNumber.innerHTML = answer;
       break;
   }
 });
+console.log(answer);
