@@ -1,10 +1,3 @@
-//Create empty variables for first & second input, operator, stored number (generated from first number once operator button clicked) and answer (generated once calculation (=) button is clicked)
-let firstNumber = "";
-let secondNumber = "";
-let operatorButton = "";
-let storedNumber = "";
-let answer = "";
-
 // Create variables to target numbers and operators by class (use querySelectorAll for numbers and operators, QuerySelector for "AC" button & "=")
 let numbers = document.querySelectorAll(".number");
 let operators = document.querySelectorAll(".operator");
@@ -19,19 +12,9 @@ const equals = document.querySelector(".equals");
 const displayNumber = document.querySelector("#display-number");
 
 //Create function to display numbers in display when clicked (use forEach to map each number to an event listener)
-
-//Create code block to reset display once operator is pressed and create a string of numbers to form the post operator button click
 const showNumbers = (event) => {
+  console.log(displayNumber);
   displayNumber.innerHTML += event.target.innerText;
-  //Create a code block to take in numbers entered before the operator button is pressed and update calculator display
-  if (!operatorButton) {
-    firstNumber = displayNumber.innerHTML;
-  } else {
-    secondNumber = displayNumber.innerHTML;
-  }
-  console.log(firstNumber, secondNumber);
-  // IF FIRST NUMBER UPDATE VARIABLE
-  // ELSE UPDATE THE SECOND NUMBER
 };
 numbers.forEach((number) => {
   number.addEventListener("click", showNumbers);
@@ -49,6 +32,37 @@ const clearAll = () => {
 };
 clearButton.addEventListener("click", clearAll);
 displayNumber.innerHTML = "";
+
+//Create a code block to take in numbers entered before the operator button is pressed and push to calculator display
+// for (let i = 0; i < numbers.length; i++) {
+numbers[i].addEventListener("click", () => {
+  if (firstNumber) {
+    firstNumber = firstNumber + number[i].innerText;
+  } else {
+    firstNumber = numbers[i].innerText;
+  }
+  showNumbers(firstNumber);
+  console.log(firstNumber);
+});
+
+const showNumbers = (event) => {
+  displayNumber.innerHTML += event.target.innerText;
+  if (!operatorButton) {
+    firstNumber = displayNumber.innerHTML;
+  } else {
+    secondNumber = displayNumber.innerHTML;
+  }
+  console.log(firstNumber, secondNumber);
+  // IF FIRST NUMBER UPDATE VARIABLE
+  // ELSE UPDATE THE SECOND NUMBER
+};
+
+//Create empty variables for first & second input, operator, stored number (generated from first number once operator button clicked) and answer (generated once calculation (=) button is clicked)
+let firstNumber = "";
+let secondNumber = "";
+let operatorButton = "";
+let storedNumber = "";
+let answer = "";
 
 //Use an array to push number to then "Reduce" for any calculation using add only??
 
@@ -74,3 +88,18 @@ equals.addEventListener("click", () => {
       break;
   }
 });
+
+// Code npt in use
+
+//Crete code block to reset display once operator is pressed and create a string of numbers to form the post operator button click
+
+// for (let i = 0; i < operator.length; i++) {
+//   operator[i].addEventListener("click", () => {
+//     oper = operator[i].innerText;
+//     showNumber(oper);
+//     secondNumber = secondNumber;
+//     showNumber(secondNumber);
+//     firstNumber = "";
+//     console.log(secondNumber, firstNumber);
+//   });
+// }
