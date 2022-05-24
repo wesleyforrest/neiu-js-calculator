@@ -14,6 +14,12 @@ const clearButton = document.querySelector("#btn-ac");
 
 //Create variable to target "=" button separately as output from button is not required.  Pressing the button should trigger a calculation between 2 selected numbers (or sets of) and output the answer to the calculator display
 const equals = document.querySelector(".equals");
+// New code - doesn't work
+// const equalsButton = (event) => {
+//   displayNumber.innerHTML += event.target.innerText;
+// };
+// equals.addEventListener("click", equalsButton);
+console.log(equals);
 
 //Create variable to update display output from calculator keyboard
 const displayNumber = document.querySelector("#display-number");
@@ -27,7 +33,7 @@ const showNumbers = (event) => {
   if (!operatorButton) {
     firstNumber = displayNumber.innerHTML;
   } else {
-    secondNumber = displayNumber.innerHTML;
+    secondNumber = displayNumber.innerHTML.substring(1);
   }
   console.log(firstNumber + secondNumber);
   // IF FIRST NUMBER UPDATE VARIABLE
@@ -36,7 +42,7 @@ const showNumbers = (event) => {
 numbers.forEach((number) => {
   number.addEventListener("click", showNumbers);
 });
-//Create function to display operators in display when clicked (use forEach to map each operator to an event listener)
+//Create function to show operators in display when clicked (use forEach to map each operator to an event listener)
 const showOperators = (event) => {
   operatorButton = event.target.innerText;
   displayNumber.innerHTML = event.target.innerText;
@@ -47,6 +53,9 @@ operators.forEach((operator) => {
 //Create function to clear display when "AC" button clicked
 const clearAll = () => {
   displayNumber.innerHTML = "";
+  firstNumber = "";
+  secondNumber = "";
+  operatorButton = "";
 };
 clearButton.addEventListener("click", clearAll);
 displayNumber.innerHTML = "";
